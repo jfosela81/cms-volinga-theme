@@ -12,10 +12,10 @@ add_action( 'wp_enqueue_scripts', function () {
         [],
         wp_get_theme()->get( 'Version' )
     );
-    // Fuente Inter de Google Fonts
+    // Rethink Sans — variable font (wght 400–800, normal + italic)
     wp_enqueue_style(
         'volinga-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap',
         [],
         null
     );
@@ -27,10 +27,12 @@ add_action( 'after_setup_theme', function () {
     add_theme_support( 'title-tag' );
     add_theme_support( 'html5', [ 'search-form', 'comment-form', 'gallery', 'caption' ] );
     add_theme_support( 'editor-styles' );
+    add_theme_support( 'wp-block-styles' );
+    add_theme_support( 'align-wide' );
     add_editor_style( 'assets/css/editor.css' );
 
     // Tamaños de imagen
-    add_image_size( 'volinga-featured', 1200, 630, true );
+    add_image_size( 'volinga-featured', 1248, 702, true );
     add_image_size( 'volinga-card', 640, 360, true );
 } );
 
@@ -66,5 +68,3 @@ add_filter( 'rest_authentication_errors', function ( $result ) {
     return $result;
 } );
 
-// ── Ocultar la barra de admin en el frontend (preview limpio) ──────────────
-add_filter( 'show_admin_bar', '__return_false' );
