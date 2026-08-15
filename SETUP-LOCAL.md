@@ -130,11 +130,25 @@ El servidor es `volinga@20.71.104.221`. Para conectarte sin contraseña desde es
 
 ## Deploy del tema al servidor
 
-Tras hacer cambios en el tema, commitea y pushea al repo, luego:
+Tras hacer cambios en el tema, commitea y pushea al repo, luego sincroniza al servidor con rsync:
 
 ```bash
-ssh volinga@20.71.104.221 \
-  "cd /var/www/cms.volinga.ai/wp-content/themes/cms-volinga-theme && sudo git pull && sudo chown -R www-data:www-data ."
+rsync -avz --exclude='.git/' \
+  ~/Sites/cms.volinga.ai/wp-content/themes/cms-volinga-theme/ \
+  volinga@20.71.104.221:/var/www/cms.volinga.ai/wp-content/themes/cms-volinga-theme/
+```
+
+Después corrige permisos:
+```bash
+ssh volinga@20.71.104.221 "sudo chown -R www-data:www-data /var/www/cms.volinga.ai/wp-content/themes/cms-volinga-theme/"
+```
+
+O todo en una línea:
+```bash
+rsync -avz --exclude='.git/' \
+  ~/Sites/cms.volinga.ai/wp-content/themes/cms-volinga-theme/ \
+  volinga@20.71.104.221:/var/www/cms.volinga.ai/wp-content/themes/cms-volinga-theme/ \
+  && ssh volinga@20.71.104.221 "sudo chown -R www-data:www-data /var/www/cms.volinga.ai/wp-content/themes/cms-volinga-theme/"
 ```
 
 ## Importar posts XML en el servidor (cms.volinga.ai)
