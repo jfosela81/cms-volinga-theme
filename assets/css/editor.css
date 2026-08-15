@@ -1,0 +1,57 @@
+/*
+ * Editor styles — se cargan en el editor de bloques de WP
+ * para que Carin vea un preview aproximado al diseño real
+ */
+
+:root {
+  --color-bg:      #0a0a0a;
+  --color-surface: #111111;
+  --color-border:  #222222;
+  --color-text:    #f0f0f0;
+  --color-muted:   #888888;
+  --color-accent:  #5b4eff;
+  --radius:        6px;
+}
+
+.editor-styles-wrapper {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  max-width: 780px !important;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4 {
+  color: var(--color-text);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.editor-styles-wrapper p { margin-bottom: 1.25rem; color: var(--color-text); }
+
+.editor-styles-wrapper a { color: var(--color-accent); }
+
+.editor-styles-wrapper .wp-block-quote {
+  border-left: 3px solid var(--color-accent);
+  padding: 0.75rem 1.25rem;
+  background: var(--color-surface);
+  font-style: italic;
+}
+
+.editor-styles-wrapper .wp-block-button__link {
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius);
+}
+
+.editor-styles-wrapper .volinga-insight-intro {
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+  font-size: 1.15rem;
+}
