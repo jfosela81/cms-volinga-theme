@@ -120,9 +120,39 @@ cd ~/Sites/cms.volinga.ai/wp-content/themes/cms-volinga-theme
 git pull
 ```
 
+## Acceso SSH al servidor
+
+El servidor es `volinga@20.71.104.221`. Para conectarte sin contraseña desde esta máquina:
+
+1. Obtén tu clave pública: `cat ~/.ssh/id_rsa.pub` (o `id_ed25519.pub`)
+2. Envíasela a Jorge para que la autorice en el servidor
+3. Verifica: `ssh volinga@20.71.104.221 "echo OK"`
+
 ## Deploy del tema al servidor
+
+Tras hacer cambios en el tema, commitea y pushea al repo, luego:
 
 ```bash
 ssh volinga@20.71.104.221 \
   "cd /var/www/cms.volinga.ai/wp-content/themes/cms-volinga-theme && sudo git pull && sudo chown -R www-data:www-data ."
 ```
+
+## Importar posts XML en el servidor (cms.volinga.ai)
+
+Una vez verificado que el XML se ve bien en local, importar en producción:
+
+1. Ve a `https://cms.volinga.ai/wp-admin` (Basic Auth: `volinga` / contraseña en gestor)
+2. Herramientas → Importar → WordPress
+3. Sube el fichero `volinga-clean.xml`
+4. Mapea todos los autores a `volingaadmin`
+5. Marca **"Descargar e importar archivos adjuntos"**
+6. Importar
+
+## Credenciales
+
+| | Usuario | Contraseña |
+|---|---|---|
+| Basic Auth (cms.volinga.ai) | `volinga` | ver gestor |
+| WP Admin (cms.volinga.ai) | `volingaadmin` | ver gestor |
+| WP Admin (local) | `volingaadmin` | `Volinga2026!cms#` |
+
