@@ -13,8 +13,8 @@ register_block_pattern(
         'description' => __( 'Estructura estándar para posts de Insights. Intro, imagen, secciones H2/H3, quote y conclusión.', 'volinga-cms' ),
         'categories'  => [ 'volinga' ],
         'content'     => '
-<!-- wp:paragraph {"className":"volinga-insight-intro"} -->
-<p class="volinga-insight-intro">Escribe aquí el párrafo introductorio. Debe resumir el tema central en 2-3 frases claras y enganchar al lector antes de que decida seguir leyendo.</p>
+<!-- wp:paragraph -->
+<p>Escribe aquí el párrafo introductorio. Debe resumir el tema central en 2-3 frases claras y enganchar al lector antes de que decida seguir leyendo.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":2} -->

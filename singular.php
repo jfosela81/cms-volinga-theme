@@ -47,10 +47,28 @@
     </div>
   </div>
 
-  <!-- ── Post body (760px centrado) ─────────────────────────── -->
+  <!-- ── Post body (760px, alineado a la izquierda del container) -->
   <div class="post-body-wrap">
-    <div class="post-body">
-      <?php the_content(); ?>
+    <div class="post-container">
+      <div class="post-body">
+        <?php the_content(); ?>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Créditos del post ────────────────────────────────────── -->
+  <div class="post-credits-wrap">
+    <div class="post-container">
+      <p class="post-credits">
+        Written by <?php echo esc_html( get_the_author() ); ?>
+        <?php if ( $categories ) : ?>
+          &mdash; <?php echo esc_html( $categories[0]->name ); ?>
+        <?php endif; ?>
+        <span class="post-credits-sep">&middot;</span>
+        Edited by the Volinga team
+        <span class="post-credits-sep">&middot;</span>
+        Images: Volinga
+      </p>
     </div>
   </div>
 
