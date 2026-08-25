@@ -10,7 +10,7 @@ add_action( 'wp_enqueue_scripts', function () {
         'volinga-cms',
         get_stylesheet_uri(),
         [],
-        wp_get_theme()->get( 'Version' )
+        filemtime( get_stylesheet_directory() . '/style.css' )
     );
     // Rethink Sans — variable font (wght 400–800, normal + italic)
     wp_enqueue_style(
@@ -29,7 +29,7 @@ add_action( 'after_setup_theme', function () {
     add_theme_support( 'editor-styles' );
     add_theme_support( 'wp-block-styles' );
     add_theme_support( 'align-wide' );
-    add_editor_style( 'assets/css/editor.css' );
+    add_editor_style( 'assets/css/editor.css?v=' . filemtime( get_template_directory() . '/assets/css/editor.css' ) );
 
     // Tamaños de imagen
     add_image_size( 'volinga-featured', 1248, 702, true );
