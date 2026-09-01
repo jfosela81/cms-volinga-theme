@@ -356,6 +356,23 @@ body {
 }
 
 /* ─── Bloques Gutenberg ─────────────────────────────────────────────── */
+
+/* Embeds de YouTube y vídeo */
+.wp-block-embed {
+  margin: 2rem 0;
+}
+.wp-block-embed__wrapper {
+  position: relative;
+  width: 100%;
+}
+.wp-block-embed__wrapper iframe {
+  width: 100%;
+  height: 428px;
+  border: none;
+  border-radius: var(--radius);
+  display: block;
+}
+
 .wp-block-image {
   margin: 2rem 0;
   line-height: 0;
