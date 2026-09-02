@@ -127,6 +127,9 @@
         "color": {
           "text": "#0E1A2A"
         },
+        "typography": {
+          "fontSize": "21px"
+        },
         "spacing": {
           "padding": {
             "top": "1.5rem",
